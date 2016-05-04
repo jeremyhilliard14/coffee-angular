@@ -8,6 +8,15 @@ coffeeApp.config(function($routeProvider) {
 			return 'pages/homeView.html';
 		}
 	});
+
+	$routeProvider.when('/register', {
+		controller: 'coffeeController',
+		templateUrl: function($routeParams) {
+			console.log('routing to registration');
+			return 'pages/registrationView.html';
+		}
+	});
+
 });
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="coffeeApp">
+<head>
+	<title>Coffee Site</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script type="text/javascript" src="public/javascripts/angular-route.js"></script>
+	<script type="text/javascript" src="coffeeController.js"></script>
+
+</head>
+<body ng-controller="coffeeController">
+	<div id="coffee-container">
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div id="logo" class="col-sm-6">
+					<a href='/'><img src='public/images/dc_roasters.png'></a>
+				</div>
+				<div id="buttons" class="col-sm-6 text-right">
+					<button class="btn.btn-primary" type="submit">Log In</button>
+					<button class="btn.btn-primary" type="submit">Register</button>
+			</div>
+		</nav>
+
+		<div id="view" ng-view></div>
+
+		<footer class="footer navbar-fixed-bottom">
+			<div class="container text-center">
+				<img src="public/images/dc_roasters.png">
+				<p>&copy 2016 DigitalCrafts Brews</p>
+			</div>
+		</footer>
+	</div>
+
+
+
+</body>
+</html>

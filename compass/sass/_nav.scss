@@ -1,0 +1,29 @@
+.navigation-bar{
+	height: 80px;
+	background-color: #284741;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	float: left;
+	border: none;
+}
+
+.navbar{
+	background-color: #284741;
+	border: none;
+	button{
+		background-color: #284741;
+		border: none;
+		color: white;
+	}
+	button:hover{
+		background-color: #c4c4c4;
+	}
+}
+#buttons{
+	margin-top: 60px;
+}
+#logo{
+	margin: 25px 0;
+}

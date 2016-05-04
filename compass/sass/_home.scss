@@ -1,0 +1,114 @@
+#logo img{
+	height: 100px;
+}
+#better-way{
+	margin-top: 200px;
+	background-image: url('../images/coffee.jpg');
+	background-size: cover;
+	height: 300px;
+}
+
+#better{
+	margin-top: 60px;
+}
+#how{
+	margin-top: 25px;
+}
+#grower-row{
+	background: #f2e3d5;
+	// margin-top: 50px;
+	height: 300px;
+}
+
+#grower img{
+	width: 100%;
+    height: auto;
+    border: 15px solid #fff;
+    transform: rotate(-18deg);
+	margin-top: 54px;
+}
+
+#one{
+	background-image: url('../images/CoffeeBags.jpg');
+	background-size: cover;
+	height: 300px;
+	color: white;
+	margin-top: 25px;
+	#one-text{
+		margin-top: 60px;
+		p{
+			margin-left: 30px;
+		}
+	}
+}
+
+#two{
+	margin-top: 35px;
+	p{
+		margin-left: 30px;
+	}
+}
+
+#three{
+	height: 300px;
+	background: black;
+	#three-text{
+		color: white;
+		margin-top: 70px;
+		p{
+			margin-left: 30px;
+		}
+	}
+	#three-img img{
+		height: 300px;
+		width: 75%;
+	}
+}
+
+#get-started{
+	margin-top: 25px;
+	button{
+		background: #284741;
+	}
+}
+
+#two-arrow{
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #433022;
+	margin-left: 47.5%;
+	position: absolute;
+	bottom: 282px;
+}
+
+#three-arrow{
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #f2e3d5;
+	margin-left: 47.5%;
+	position: absolute;
+	bottom: 301px;
+}
+
+#three-arrow2{
+	width: 0; 
+	height: 0; 
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid black;
+	margin-left: 48.5%;
+}
+
+#additional-info{
+	margin-top: 15px;
+	margin-bottom: 150px;
+	button{
+		background-color: #c4c4c4;
+		color: black;
+		border: none;
+	}
+}

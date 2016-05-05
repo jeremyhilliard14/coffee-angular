@@ -43,7 +43,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 
 	$scope.registerForm = function(form){
 		console.log($scope.username);
-		$http.post('http://localhost:3000/register', {
+		$http.post(apiUrl + 'register', {
 			username: $scope.username,
 			password: $scope.password,
 			password2: $scope.password2,
@@ -62,7 +62,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 	}
 
 	$scope.loginForm = function(form){
-		$http.post('http://localhost:3000/login', {
+		$http.post(apiUrl + 'login', {
 			username: $scope.username,
 			password: $scope.password
 		}).then(function successCallback(response){

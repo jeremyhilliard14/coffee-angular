@@ -59,6 +59,19 @@ coffeeApp.config(function($routeProvider) {
 coffeeApp.controller('coffeeController', function($scope, $http, $route, $location, $cookies){
 	$scope.message = "HELLO!!!!"
 
+	$http.get(apiUrl + 'getUserData?token=' + $cookies.get('token'), {
+	}).then(function successCallback(response){
+		console.log(response)
+		// if(response.data.failure == 'badToken'){
+		// 	//user needs to log in
+		// 	$location.path('/register')
+		//}
+		//console.log(response.data);
+		var userOptions = response.data;
+	}, function errorCallback(response){
+		console.log(response);
+	});
+
 	$scope.registerForm = function(form){
 		console.log($scope.username);
 		$http.post(apiUrl + 'register', {
@@ -67,12 +80,12 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			password2: $scope.password2,
 			email: $scope.email
 		}).then(function successCallback(response){
-			console.log(response.data.failure);
+			//console.log(response.data.failure);
 			if(response.data.failure == 'passwordMatch'){
 				$scope.errorMessage = 'Your passwords must match.';
 			}else if(response.data.success == 'added'){
 				$cookies.put('token', response.data.token);
-				$cookies.put('token', $scope.username);
+				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}
 		}, function errorCallback(response){
@@ -86,10 +99,10 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			username: $scope.username,
 			password: $scope.password
 		}).then(function successCallback(response){
-			console.log(response.data);
+			//console.log(response.data);
 			if(response.data.success == 'found'){
 				$cookies.put('token', response.data.token);
-				$cookies.put('token', $scope.username);
+				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}else if(response.data.failure == 'noUser'){
 				$scope.errorMessage = 'No such user in the database.';
@@ -98,6 +111,25 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			}
 		}, function errorCallback(response){
 
+		});
+	}
+
+	$scope.optionsForm = function(planType){
+		console.log($scope.grind);
+		$http.post(apiUrl + 'options', {
+			grind: $scope.grind,
+			quantity: $scope.quantity,
+			token: $cookies.get('token'),
+			plan: planType
+		}).then(function successCallback(response){
+			console.log(response.data);
+			if(response.data.success == 'updated'){
+				$location.path('/delivery');
+			}else if(response.data.failure == 'noMatch'){
+				$location.path('/login');
+			}
+		}, function errorCallback(response){
+			console.log("ERROR");
 		});
 	}
 

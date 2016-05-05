@@ -9,7 +9,26 @@ mongoose.connect(mongoUrl);
 
 //generate random token
 var token = randtoken.generate(32);
-console.log(token);
+//console.log(token);
+
+router.get('/getUserData', function(req, res, next){
+	console.log(req.query.token);
+	if (req.query.token == undefined){
+		res.json({failure: "noToken"});
+	}else{
+		//res.json({success: "tokenFound"});
+		Account.findOne(
+			{token: req.query.token},
+			function(err, doc){
+				if(doc == null){
+					res.json({failure: "badToken"});
+				}else{
+					res.json(doc);
+				}
+			}
+		);
+	}
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -64,7 +83,7 @@ router.post('/login', function(req, res, next){
 					//req.session.username = req.body.username;
 					res.json({
 						success: 'found',
-						token = doc.token
+						token: doc.token
 					});
 				}else{
 					res.json({failure: 'badPassword'});
@@ -80,5 +99,28 @@ router.get('/options', function(req, res, next){
 		res.render('options', {username: req.session.username})
 	}
 });
+
+router.post('/options', function(req, res, next){
+	Account.findOneAndUpdate(
+		{token: req.body.token}, //is the which
+		{
+			quantity: req.body.quantity,
+			grind: req.body.grind,
+			plan: req.body.plan,
+			upsert: true
+		},
+		function(err, account){
+			if(account == null){
+				//no record that matched this token
+				res.json({failure: 'noMatch'})
+			}else{
+				//we got a record and we updated it
+				account.save();
+				res.json({success: 'updated'})
+			}
+		}
+
+	)
+})
 
 module.exports = router;

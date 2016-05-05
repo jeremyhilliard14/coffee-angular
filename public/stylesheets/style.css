@@ -574,6 +574,12 @@ body {
   margin-top: 25px;
 }
 
+/* line 29, ../../compass/sass/_payments.scss */
+#payments-header {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
 /* line 1, ../../compass/sass/_footer.scss */
 .footer {
   height: 60px;

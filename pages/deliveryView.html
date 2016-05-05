@@ -1,0 +1,156 @@
+<div class="container-fluid">
+	<div class="row">
+		<div id="delivery-nav" class="col-sm-12 text-center">
+			<ul id="delivery-menu" class="list-inline">
+				<li id="delivery-home">
+					<a href="/#/">
+						<div class="home"></div>
+						<p>1. HOME</p>
+					</a>
+				</li>
+
+				<li id="delivery-option-icon">
+					<a href="/#/options">
+						<div id="delivery-option"></div>
+						<p>2. OPTIONS</p>
+					</a>
+				</li>
+
+				<li id="delivery2">
+					<a href="/#/delivery">
+						<div class="delivery2"></div>
+						<p>3. DELIVERY</p>
+					</a>
+				</li>
+
+				<li id="delivery-payment">
+					<a href="/#/payment">
+						<div class="payment"></div>
+						<p>4. PAYMENT</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-offset-1">
+			<div id="delivery-header" class="col-sm-11 text-left">
+				<h2>Please enter you shipping information.</h2>
+				<h4>We treat your coffee like gold.  Like black gold (not Texas tea).  It will be shipped safely and is guaranteed.</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-offset-1">
+			<div id="delivery-info" class="col-sm-6">
+				<form role="form" ng-submit="deliveryForm(this)" id="delivery-form" name="delivery" class="text-left">
+					<h2>Address</h2>
+					<div class="form-group text-left">
+						<label>Full Name</label>
+						<input id="name" class="form-control text-left" type="text" ng-model="fullName" placeholder="John Smith" minlength="5">
+					</div>
+					<div class="form-group text-left">
+						<label>Address Line 1</label>
+						<input id="add1" class="form-control text-left" type="text" ng-model="address1" placeholder="100 Main St" minlength="5">
+						<p id="add-p">Street address, P.O. Box, company name, c/o</p>
+					</div>
+					<div class="form-group text-left">
+						<label>Address Line 2</label>
+						<input id="add2" class="form-control text-left" type="text" ng-model="address2" placeholder="Apt 100" minlength="5">
+						<p id="add2-p">Apartment, suite, floor, unit, building, etc.</p>
+					</div>
+					<div class="form-group text-left">
+						<label>City</label>
+						<input id="city" class="form-control text-left" type="text" ng-model="city" placeholder="Your City" minlength="5">
+						<p id="city-p">City, town, etc.</p>
+					</div>
+					<div class="form-group text-left">
+						<label>State</label>
+						<select id="state" class="form-control" ng-nodel="selectedState">
+							<option value="AL">Alabama</option>
+							<option value="AK">Alaska</option>
+							<option value="AZ">Arizona</option>
+							<option value="AR">Arkansas</option>
+							<option value="CA">California</option>
+							<option value="CO">Colorado</option>
+							<option value="CT">Connecticut</option>
+							<option value="DE">Delaware</option>
+							<option value="DC">District Of Columbia</option>
+							<option value="FL">Florida</option>
+							<option value="GA">Georgia</option>
+							<option value="HI">Hawaii</option>
+							<option value="ID">Idaho</option>
+							<option value="IL">Illinois</option>
+							<option value="IN">Indiana</option>
+							<option value="IA">Iowa</option>
+							<option value="KS">Kansas</option>
+							<option value="KY">Kentucky</option>
+							<option value="LA">Louisiana</option>
+							<option value="ME">Maine</option>
+							<option value="MD">Maryland</option>
+							<option value="MA">Massachusetts</option>
+							<option value="MI">Michigan</option>
+							<option value="MN">Minnesota</option>
+							<option value="MS">Mississippi</option>
+							<option value="MO">Missouri</option>
+							<option value="MT">Montana</option>
+							<option value="NE">Nebraska</option>
+							<option value="NV">Nevada</option>
+							<option value="NH">New Hampshire</option>
+							<option value="NJ">New Jersey</option>
+							<option value="NM">New Mexico</option>
+							<option value="NY">New York</option>
+							<option value="NC">North Carolina</option>
+							<option value="ND">North Dakota</option>
+							<option value="OH">Ohio</option>
+							<option value="OK">Oklahoma</option>
+							<option value="OR">Oregon</option>
+							<option value="PA">Pennsylvania</option>
+							<option value="RI">Rhode Island</option>
+							<option value="SC">South Carolina</option>
+							<option value="SD">South Dakota</option>
+							<option value="TN">Tennessee</option>
+							<option value="TX">Texas</option>
+							<option value="UT">Utah</option>
+							<option value="VT">Vermont</option>
+							<option value="VA">Virginia</option>
+							<option value="WA">Washington</option>
+							<option value="WV">West Virginia</option>
+							<option value="WI">Wisconsin</option>
+							<option value="WY">Wyoming</option>
+						</select>
+					</div>
+					<div class="form-group text-left">
+						<label>Zip Code</label>
+						<input id="zip" class="form-control text-left" type="number" ng-model="zipCode" placeholder="Zip Code" minlength="5">
+					</div>
+					<div class="form-group text-left">
+						<div class="control-group">
+					        <label for="date-picker-2" class="control-label">Delivery Date</label>
+						    <div id="dateRangePicker" class="controls">
+						        <div class="input-group">
+						            <input id="date-picker-2" type="text" class="date-picker form-control" ng-model="date">
+						            <label id="date-picker-2-label" for="date-picker-2" class="input-group-addon btn"><span id="date-picker-2-span"class="glyphicon glyphicon-calendar"></span>
+
+					        		</label>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+					<div id="delivery-button" class="button-holder text-center">
+						<button class="btn.btn-succes" type="submit">Submit</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			$(".date-picker").datepicker();
+		});
+</script>

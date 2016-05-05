@@ -26,7 +26,7 @@
 				<li id="payment">
 					<a href="/#/payment">
 						<div class="payment"></div>
-						<p>3. PAYMENT</p>
+						<p>4. PAYMENT</p>
 					</a>
 				</li>
 			</ul>
@@ -54,7 +54,7 @@
 					<h3 class="price">Price per cup:<span class="price">$.50</span></h3>
 					<h3 class="total">Weekly total:<span class="total">$7.00</span></h3>
 					<h3 class="grind">Grind type:
-						<select class="form-control">
+						<select class="form-control" ng-model="type">
 							<option></option>
 							<option>Very Fine</option>
 							<option>Fine</option>
@@ -86,7 +86,7 @@
 					<h3 class="price">Price per cup:<span class="price">$.45</span></h3>
 					<h3 class="total">Weekly total:<span class="total">$18.00</span></h3>
 					<h3 class="grind">Grind type:
-						<select class="form-control">
+						<select class="form-control" ng-model="type">
 							<option></option>
 							<option>Very Fine</option>
 							<option>Fine</option>
@@ -125,7 +125,7 @@
 			<div class="col-sm-5 text-center freq-text">
 				<h2>1.  FREQUENCY</h2>
 				<p>How often would you like us to send you your coffee?</p>
-				<select class="form-control text-center">
+				<select class="form-control text-center" ng-model="frequency">
 					<option></option>
 				</select>
 				<p>You can cancel anytime.  You can skip anytime.</p>
@@ -144,7 +144,7 @@
 				<h2>2.  QUANTITY</h2>
 				<p>How many pounds (increments of 25lbs) would you like each delivery?</p>
 				<p>$20.00/lb</p>
-				<select class="form-control text-center">
+				<select class="form-control text-center" ng-model="quantity">
 					<option></option>
 				</select>
 				<p>You can cancel anytime.  You can skip anytime.</p>
@@ -162,8 +162,13 @@
 			<div class="col-sm-5 text-center freq-text">
 				<h2>3.  GRIND TYPE</h2>
 				<p>How do you like your grinds?</p>
-				<select class="form-control text-center">
+				<select class="form-control text-center" ng-model="type">
 					<option></option>
+						<option>Very Fine</option>
+						<option>Fine</option>
+						<option>Medium</option>
+						<option>Coarse</option>
+						<option>Very Coarse</option>
 				</select>
 				<p>You can cancel anytime.  You can skip anytime.</p>
 			</div>

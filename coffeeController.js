@@ -1,4 +1,4 @@
-var coffeeApp = angular.module('coffeeApp', ['ngRoute']);
+var coffeeApp = angular.module('coffeeApp', ['ngRoute', 'ngCookies']);
 var apiUrl = 'http://localhost:3000/'
 
 coffeeApp.config(function($routeProvider) {
@@ -35,10 +35,28 @@ coffeeApp.config(function($routeProvider) {
 		}
 
 	});
+
+	$routeProvider.when('/delivery', {
+		controller: 'coffeeController',
+		templateUrl: function($routeParams) {
+			console.log('routing to delivery');
+			return 'pages/deliveryView.html';
+		}
+
+	});
+
+	$routeProvider.when('/payments', {
+		controller: 'coffeeController',
+		templateUrl: function($routeParams) {
+			console.log('routing to payments');
+			return 'pages/paymentsView.html';
+		}
+
+	});
 });
 
 
-coffeeApp.controller('coffeeController', function($scope, $http, $route, $location){
+coffeeApp.controller('coffeeController', function($scope, $http, $route, $location, $cookies){
 	$scope.message = "HELLO!!!!"
 
 	$scope.registerForm = function(form){
@@ -53,6 +71,8 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			if(response.data.failure == 'passwordMatch'){
 				$scope.errorMessage = 'Your passwords must match.';
 			}else if(response.data.success == 'added'){
+				$cookies.put('token', response.data.token);
+				$cookies.put('token', $scope.username);
 				$location.path('/options');
 			}
 		}, function errorCallback(response){
@@ -68,6 +88,8 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		}).then(function successCallback(response){
 			console.log(response.data);
 			if(response.data.success == 'found'){
+				$cookies.put('token', response.data.token);
+				$cookies.put('token', $scope.username);
 				$location.path('/options');
 			}else if(response.data.failure == 'noUser'){
 				$scope.errorMessage = 'No such user in the database.';
@@ -78,5 +100,20 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 
 		});
 	}
+
+	// $scope.deliveryForm = function(form){
+	// 	$http.post(apiUrl + 'delivery', {
+	// 		fullName: $scope.fullName,
+	// 		address1: $scope.address1,
+	// 		address2: $scope.address2,
+	// 		city: $scope.city,
+	// 		state: $scope.selectedState,
+	// 		zipCode: $scope.zipCode,
+	// 		date: $scope.date
+	// 	}).then(function successCallback(response){
+	// 		console.log(response.data);
+
+	// 	})
+	// }
 
 });

@@ -4,7 +4,12 @@ var mongoUrl = 'mongodb://localhost:27017/coffee';
 var mongoose = require('mongoose');
 var Account = require('../models/accounts');
 var bcrypt = require('bcrypt-nodejs');
+var randtoken = require('rand-token');
 mongoose.connect(mongoUrl);
+
+//generate random token
+var token = randtoken.generate(32);
+console.log(token);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,15 +28,21 @@ router.post('/register', function(req, res, next){
 	if(req.body.password != req.body.password2){
 		res.json({failure: 'passwordMatch'})
 	}else{
+		var token = randtoken.generate(32);
+		console.log(token);
 		var newAccount = new Account({
 			username: req.body.username,
 			password: bcrypt.hashSync(req.body.password),
-			emailAddress: req.body.email
+			emailAddress: req.body.email,
+			token: token
 		});
 		newAccount.save();
-		console.log(newAccount);
-		req.session.username = req.body.username;
-		res.json({success: 'added'});
+		//console.log(newAccount);
+		//req.session.username = req.body.username;
+		res.json({
+			success: 'added',
+			token: token
+		});
 		//res.render("register", {})
 	}
 });
@@ -41,7 +52,6 @@ router.get('/login', function(req, res, next){
 });
 
 router.post('/login', function(req, res, next){
-
 	Account.findOne(
 		{username: req.body.username},
 		function(err, doc){
@@ -51,8 +61,11 @@ router.post('/login', function(req, res, next){
 				console.log(doc);
 				var loginResult = bcrypt.compareSync(req.body.password, doc.password);
 				if(loginResult){
-					req.session.username = req.body.username;
-					res.json({success: 'found'});
+					//req.session.username = req.body.username;
+					res.json({
+						success: 'found',
+						token = doc.token
+					});
 				}else{
 					res.json({failure: 'badPassword'});
 				} 

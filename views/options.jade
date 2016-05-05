@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-sm-12.options-nav.text-center
+				ul.menu.list-inline
+					li#home
+						a(href="/")
+							div.home
+							p 1. HOME
+					li#options
+						a(href="/options")
+							div.options
+							p 2. OPTIONS
+					li#delivery
+						a(href="/delivery")
+							div.delivery
+							p  3. DELIVERY
+					li#payment
+						a(href="/payment")
+							div.payment
+							p 4. PAYMENT
+		.row
+			.col-sm-12.header.text-center
+				h2 Tell us what you want!!
+				p Shopping is free and you can skip any week
+				h1 #{username}

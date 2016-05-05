@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-sm-12.reg-header.text-center
+				h1 Registration
+				h4 Pick a username and password
+		.row
+			.col-sm-offset-4.error.text-center
+				.col-sm-6.registration-wrapper.text-center
+					if(failure)
+						h2 Your Password must match
+					form(role="form", action="/register", method="post", id="registration-form", name="registration")
+						.form-group.text-center
+							label Username:
+							input.form-control(type="text", name="username", placeholder="John Smith", minlength="5")
+						.form-group
+							label Password:
+							input.form-control(type="password", name="password", placeholder="6 Character Minimum", minlength="6")
+						.form-group
+							input.form-control(type="password", name="password2", placeholder="Confirm Password", minlength="6")
+						.form-group
+							label Email:
+							input.form-control(type="email", name="email", placeholder="johnsmith@example.com")
+						.button-holder
+							button.btn.btn-success(type="submit") Register
+
+

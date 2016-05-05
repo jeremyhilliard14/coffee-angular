@@ -1,5 +1,57 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	.container-fluid
+		.row
+			#better-way.col-sm-12
+				#better.col-sm-4
+					h1 A better way to grind
+					h4 Freshly roasted coffee beans delivered weekly to your door.
+		.row
+			#how.col-sm-12.how-it-works.text-center
+				h4 How it works
+			.col-sm-12.arrow-holder
+				.arrow-down
+		.row
+			#one.col-sm-12.steps.step-one
+				#one-text.col-sm-4
+					h3.title 1. We get the coffee
+					p Each bean is hand selected
+					p Each bean is measured for precise size
+					p Each bean is tenderly caressed
+			.col-sm-12.arrow-holder
+					#one-arrow.arrow-down
+		.row
+			#grower-row.col-sm-12
+				#grower.col-sm-3
+					img(src='images/grower.jpg')
+				#two.col-sm-9.steps.step-two
+					h3 2. We pick up the coffee
+					p We place the coffee in bags
+					p Each bag is transportd in climate-controlled trucks
+					p Every six hours the bags are rotated to keep the beans uniform and delicious
+			.col-sm-12.arrow-holder
+					#two-arrow.arrow-down
+		.row
+			#three.col-sm-12.steps.step-three
+				#three-text.col-sm-4
+					h3 3. You drink the coffee
+					p The coffee tastes delicious
+					p You want more coffee
+				#three-img.col-sm-8
+					img(src='images/cupSteam.jpg')
+			.col-sm-12.arrow-holder
+				#three-arrow.arrow-down
+					.col-sm-12.arrow-holder
+				#three-arrow2.arrow-down
+		.row
+			#get-started.col-sm-12.text-center
+				a(href="/register")
+					button.btn.btn-primary(type="button") Get Started
+		.row
+			#additional-info.col-sm-12.text-center
+				p Want to know more about us?
+				a(href='/aboutUs')
+					button.btn.btn-primary(type="button") Our Story
+
+

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	.container-fluid
+		.row
+			.col-sm-12.reg-header.text-center
+				h1 Log In
+				h4 Please enter your username and password below
+		.row
+			.col-sm-offset-4.error.text-center
+				.col-sm-6.login-wrapper.text-center
+					if(failure)
+						h2 Please try again or continue to the registration page
+					form(role="form", action="/login", method="post", id="login-form", name="login")
+						.form-group.text-center
+							label Username:
+							input.form-control(type="text", name="username", placeholder="John Smith", minlength="5")
+						.form-group
+							label Password:
+							input.form-control(type="password", name="password", placeholder="6 Character Minimum", minlength="6")
+						.button-holder
+							button.btn.btn-success(type="submit") Login

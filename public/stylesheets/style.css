@@ -40,6 +40,12 @@
   height: 50px;
 }
 
+/* line 1, ../../compass/sass/_base.scss */
+body {
+  background-color: #efefed;
+  height: 100%;
+}
+
 /* line 1, ../../compass/sass/_home.scss */
 #better-way {
   margin-top: 150px;
@@ -177,6 +183,164 @@
 /* line 1, ../../compass/sass/_register.scss */
 #registration-wrapper {
   margin-top: 150px;
+}
+
+/* line 1, ../../compass/sass/_login.scss */
+#login-wrapper {
+  margin-top: 150px;
+}
+
+/* line 1, ../../compass/sass/_options.scss */
+#options-nav {
+  margin-top: 100px;
+  position: relative;
+  height: 70px;
+  background-color: #c4c4c4;
+}
+
+/* line 10, ../../compass/sass/_options.scss */
+.home {
+  left: 0px;
+  width: 65px;
+  height: 60px;
+  background: url("../images/menu-steps.png");
+  background-position: 0px 0px;
+  float: left;
+}
+
+/* line 19, ../../compass/sass/_options.scss */
+#home p {
+  float: right;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+/* line 25, ../../compass/sass/_options.scss */
+.options {
+  left: 0px;
+  width: 65px;
+  height: 60px;
+  background: url("../images/menu-steps-active.png");
+  background-position: 0px -57px;
+  float: left;
+}
+
+/* line 33, ../../compass/sass/_options.scss */
+#option-icon p {
+  float: right;
+  margin-top: 25px;
+}
+
+/* line 38, ../../compass/sass/_options.scss */
+.delivery {
+  left: 0px;
+  width: 70px;
+  height: 60px;
+  background: url("../images/menu-steps.png");
+  background-position: 0px -117px;
+  float: left;
+}
+
+/* line 46, ../../compass/sass/_options.scss */
+#delivery p {
+  float: right;
+  margin-top: 25px;
+}
+
+/* line 51, ../../compass/sass/_options.scss */
+.payment {
+  left: 0px;
+  width: 65px;
+  height: 60px;
+  background: url("../images/menu-steps.png");
+  background-position: 0px -180px;
+  float: left;
+}
+
+/* line 59, ../../compass/sass/_options.scss */
+#payment p {
+  float: right;
+  margin-top: 25px;
+}
+
+/* line 64, ../../compass/sass/_options.scss */
+#solo-option {
+  margin-bottom: 200px;
+}
+
+/* line 68, ../../compass/sass/_options.scss */
+#option1 {
+  background-color: white;
+  position: relative;
+  float: right;
+}
+
+/* line 75, ../../compass/sass/_options.scss */
+#option1 img {
+  width: 100%;
+}
+
+/* line 80, ../../compass/sass/_options.scss */
+#cups {
+  margin-left: 50px;
+}
+/* line 82, ../../compass/sass/_options.scss */
+#cups span {
+  margin-left: 30px;
+}
+
+/* line 87, ../../compass/sass/_options.scss */
+.price {
+  margin-left: 70px;
+}
+/* line 89, ../../compass/sass/_options.scss */
+.price span {
+  margin-left: 30px;
+}
+
+/* line 94, ../../compass/sass/_options.scss */
+.total {
+  margin-left: 80px;
+}
+/* line 96, ../../compass/sass/_options.scss */
+.total span {
+  margin-left: 30px;
+}
+
+/* line 101, ../../compass/sass/_options.scss */
+.grind {
+  margin-left: 90px;
+}
+/* line 103, ../../compass/sass/_options.scss */
+.grind .form-control {
+  width: 65%;
+  float: right;
+}
+
+/* line 108, ../../compass/sass/_options.scss */
+.button-holder {
+  margin-left: 75px;
+  margin-top: 30px;
+}
+/* line 111, ../../compass/sass/_options.scss */
+.button-holder button {
+  width: 200px;
+}
+
+/* line 116, ../../compass/sass/_options.scss */
+.shipping-info {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/* line 122, ../../compass/sass/_options.scss */
+#option2 {
+  background-color: white;
+}
+
+/* line 127, ../../compass/sass/_options.scss */
+#option2 img {
+  width: 100%;
 }
 
 /* line 1, ../../compass/sass/_footer.scss */

@@ -1,0 +1,129 @@
+#options-nav{
+	margin-top: 100px;
+	position: relative;
+	height: 70px;
+	background-color: #c4c4c4;
+}
+
+.menu-list{
+}
+.home{
+	left: 0px;
+    width: 65px;
+    height: 60px;
+    background: url('../images/menu-steps.png');
+    background-position: 0px 0px;
+    float: left;
+}
+
+#home p {
+	float: right;
+	margin-top: 25px;
+	margin-right: 20px;
+}
+
+.options{
+	left: 0px;
+    width: 65px;
+    height: 60px;
+    background: url('../images/menu-steps-active.png');
+    background-position: 0px -57px;
+    float: left;
+}
+#option-icon p {
+	float: right;
+	margin-top: 25px;
+}
+
+.delivery{
+	left: 0px;
+    width: 70px;
+    height: 60px;
+    background: url('../images/menu-steps.png');
+    background-position: 0px -117px;
+    float: left;
+}
+#delivery p {
+	float: right;
+	margin-top: 25px;
+}
+
+.payment{
+	left: 0px;
+    width: 65px;
+    height: 60px;
+    background: url('../images/menu-steps.png');
+     background-position: 0px -180px;
+    float: left;
+}
+#payment p {
+	float: right;
+	margin-top: 25px;
+}
+
+#solo-option{
+    margin-bottom: 200px;
+}
+
+#option1{
+    background-color: white;
+    // background-size: 100% 75%;
+    position: relative;
+    float: right;
+}
+
+#option1 img{
+    width: 100%;
+    // margin-bottom: 150px;
+}
+
+#cups{
+    margin-left: 50px;
+    span{
+        margin-left: 30px;
+    }
+}
+
+.price{
+    margin-left: 70px;
+    span{
+        margin-left: 30px;
+    }
+}
+
+.total{
+    margin-left: 80px;
+    span{
+        margin-left: 30px;
+    }
+}
+
+.grind{
+    margin-left: 90px;
+    .form-control{
+        width: 65%;
+        float: right;
+    }
+}
+.button-holder{
+    margin-left: 75px;
+    margin-top: 30px;
+    button{
+        width: 200px;
+    }
+}
+
+.shipping-info{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+#option2{
+    background-color: white;
+    // background-size: 100% 75%;
+}
+
+#option2 img{
+    width: 100%;
+}

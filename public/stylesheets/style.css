@@ -42,7 +42,7 @@
 
 /* line 1, ../../compass/sass/_base.scss */
 body {
-  background-color: #efefed;
+  background-color: #dbdbdb;
   height: 100%;
 }
 
@@ -185,9 +185,30 @@ body {
   margin-top: 150px;
 }
 
+/* line 6, ../../compass/sass/_register.scss */
+#registration-form button {
+  width: 200px;
+  background-color: #284741;
+  color: white;
+  margin-left: 15px;
+}
+
 /* line 1, ../../compass/sass/_login.scss */
 #login-wrapper {
   margin-top: 150px;
+  position: relative;
+}
+/* line 4, ../../compass/sass/_login.scss */
+#login-wrapper .form-group {
+  width: 100%;
+}
+
+/* line 10, ../../compass/sass/_login.scss */
+#login-button {
+  width: 200px;
+  background-color: #284741;
+  color: white;
+  margin-left: 15px;
 }
 
 /* line 1, ../../compass/sass/_options.scss */
@@ -310,99 +331,100 @@ body {
 .grind .form-control {
   width: 65%;
   float: right;
+  margin-top: -25px;
 }
 
-/* line 104, ../../compass/sass/_options.scss */
-.button-holder {
+/* line 105, ../../compass/sass/_options.scss */
+#solo-button, #group-button {
   margin-left: 75px;
   margin-top: 30px;
 }
-/* line 107, ../../compass/sass/_options.scss */
-.button-holder button {
+/* line 108, ../../compass/sass/_options.scss */
+#solo-button button, #group-button button {
   width: 200px;
   background-color: #284741;
   color: white;
 }
 
-/* line 114, ../../compass/sass/_options.scss */
+/* line 115, ../../compass/sass/_options.scss */
 .shipping-info {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-/* line 120, ../../compass/sass/_options.scss */
+/* line 121, ../../compass/sass/_options.scss */
 #option2 {
   background-color: white;
 }
 
-/* line 125, ../../compass/sass/_options.scss */
+/* line 126, ../../compass/sass/_options.scss */
 #option2 img {
   width: 100%;
 }
 
-/* line 129, ../../compass/sass/_options.scss */
+/* line 130, ../../compass/sass/_options.scss */
 #personalize {
   margin-top: 25px;
   margin-bottom: 50px;
 }
 
-/* line 134, ../../compass/sass/_options.scss */
+/* line 135, ../../compass/sass/_options.scss */
 #frequency {
   border: 1px solid black;
   margin-bottom: 25px;
 }
-/* line 137, ../../compass/sass/_options.scss */
+/* line 138, ../../compass/sass/_options.scss */
 #frequency img {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-/* line 141, ../../compass/sass/_options.scss */
+/* line 142, ../../compass/sass/_options.scss */
 #frequency h2 {
   margin-top: 130px;
 }
 
-/* line 146, ../../compass/sass/_options.scss */
+/* line 147, ../../compass/sass/_options.scss */
 .form-control {
   width: 50%;
   margin-left: 120px;
   margin-bottom: 15px;
 }
 
-/* line 152, ../../compass/sass/_options.scss */
+/* line 153, ../../compass/sass/_options.scss */
 #quantity {
   border: 1px solid black;
   margin-bottom: 25px;
 }
-/* line 155, ../../compass/sass/_options.scss */
+/* line 156, ../../compass/sass/_options.scss */
 #quantity img {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-/* line 159, ../../compass/sass/_options.scss */
+/* line 160, ../../compass/sass/_options.scss */
 #quantity h2 {
   margin-top: 130px;
 }
 
-/* line 164, ../../compass/sass/_options.scss */
+/* line 165, ../../compass/sass/_options.scss */
 #grind-type {
   border: 1px solid black;
   margin-bottom: 25px;
 }
-/* line 167, ../../compass/sass/_options.scss */
+/* line 168, ../../compass/sass/_options.scss */
 #grind-type img {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-/* line 171, ../../compass/sass/_options.scss */
+/* line 172, ../../compass/sass/_options.scss */
 #grind-type h2 {
   margin-top: 130px;
 }
 
-/* line 176, ../../compass/sass/_options.scss */
+/* line 177, ../../compass/sass/_options.scss */
 #personal-submit {
   margin-bottom: 85px;
 }
-/* line 178, ../../compass/sass/_options.scss */
+/* line 179, ../../compass/sass/_options.scss */
 #personal-submit button {
   width: 20%;
   font-size: 25px;

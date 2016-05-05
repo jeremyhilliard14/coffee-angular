@@ -99,9 +99,10 @@
     .form-control{
         width: 65%;
         float: right;
+        margin-top: -25px;
     }
 }
-.button-holder{
+#solo-button, #group-button{
     margin-left: 75px;
     margin-top: 30px;
     button{

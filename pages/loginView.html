@@ -1,8 +1,8 @@
 <div id="login-wrapper" class="container-fluid">
 	<div class="row">
 		<div class="col-sm-offset-4 error text-center">
-			<div class="col-sm-6 test-center">
-				<form role="form" ng-submit="loginForm(this)" id="login-form" name="registration">
+			<div class="col-sm-6 text-center">
+				<form role="form" ng-submit="loginForm(this)" id="login-form" name="registration" class="text-center">
 					<h2 class="warning text-center">{{errorMessage}}</h2>
 					<div class="form-group text-center">
 						<label>Username:</label>
@@ -12,8 +12,8 @@
 						<label>Password:</label>
 						<input class="form-control" type="password" ng-model="password" placeholder="6 Character Minimum" minlength="6">
 					</div>
-					<div class="button-holder">
-						<button class="btn.btn-succes" type="submit">Register</button>
+					<div class="button-holder text-center">
+						<button id="login-button" class="btn.btn-succes" type="submit">Register</button>
 					</div>
 
 				</form>

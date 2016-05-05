@@ -1,8 +1,8 @@
 <div id="registration-wrapper" class="container-fluid">
 	<div class="row">
 		<div class="col-sm-offset-4 error text-center">
-			<div class="col-sm-6 test-center">
-				<form role="form" ng-submit="registerForm(this)" id="registration-form" name="registration">
+			<div class="col-sm-6 text-left">
+				<form role="form" ng-submit="registerForm(this)" id="registration-form" name="registration" class="text-left">
 					<h2 class="warning text-center">{{errorMessage}}</h2>
 					<div class="form-group text-center">
 						<label>Username:</label>
@@ -19,7 +19,7 @@
 						<label>Email:</label>
 						<input class="form-control" type="email" ng-model="email" placeholder="johnsmith@example.com">
 					</div>
-					<div class="button-holder">
+					<div id="register-button" class="button-holder text-center">
 						<button class="btn.btn-succes" type="submit">Register</button>
 
 				</form>

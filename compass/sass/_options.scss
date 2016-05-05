@@ -61,10 +61,6 @@
 	margin-top: 25px;
 }
 
-#solo-option{
-    margin-bottom: 200px;
-}
-
 #option1{
     background-color: white;
     // background-size: 100% 75%;
@@ -110,6 +106,8 @@
     margin-top: 30px;
     button{
         width: 200px;
+        background-color: #284741;
+        color: white;
     }
 }
 
@@ -126,4 +124,61 @@
 
 #option2 img{
     width: 100%;
+}
+
+#personalize{
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+#frequency{
+    border: 1px solid black;
+    margin-bottom: 25px;
+    img{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    h2{
+        margin-top: 130px;
+    }
+}
+
+.form-control{
+    width: 50%;
+    margin-left: 120px;
+    margin-bottom: 15px;
+}
+
+#quantity{
+    border: 1px solid black;
+    margin-bottom: 25px;
+    img{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    h2{
+        margin-top: 130px;
+    }
+}
+
+#grind-type{
+    border: 1px solid black;
+    margin-bottom: 25px;
+    img{
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    h2{
+        margin-top: 130px;
+    }
+}
+
+#personal-submit{
+    margin-bottom: 85px;
+    button{
+        width: 20%;
+        font-size: 25px;
+        background-color: #284741;
+        color: white;
+    }
 }

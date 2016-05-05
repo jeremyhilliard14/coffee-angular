@@ -264,88 +264,155 @@ body {
 }
 
 /* line 64, ../../compass/sass/_options.scss */
-#solo-option {
-  margin-bottom: 200px;
-}
-
-/* line 68, ../../compass/sass/_options.scss */
 #option1 {
   background-color: white;
   position: relative;
   float: right;
 }
 
-/* line 75, ../../compass/sass/_options.scss */
+/* line 71, ../../compass/sass/_options.scss */
 #option1 img {
   width: 100%;
 }
 
-/* line 80, ../../compass/sass/_options.scss */
+/* line 76, ../../compass/sass/_options.scss */
 #cups {
   margin-left: 50px;
 }
-/* line 82, ../../compass/sass/_options.scss */
+/* line 78, ../../compass/sass/_options.scss */
 #cups span {
   margin-left: 30px;
 }
 
-/* line 87, ../../compass/sass/_options.scss */
+/* line 83, ../../compass/sass/_options.scss */
 .price {
   margin-left: 70px;
 }
-/* line 89, ../../compass/sass/_options.scss */
+/* line 85, ../../compass/sass/_options.scss */
 .price span {
   margin-left: 30px;
 }
 
-/* line 94, ../../compass/sass/_options.scss */
+/* line 90, ../../compass/sass/_options.scss */
 .total {
   margin-left: 80px;
 }
-/* line 96, ../../compass/sass/_options.scss */
+/* line 92, ../../compass/sass/_options.scss */
 .total span {
   margin-left: 30px;
 }
 
-/* line 101, ../../compass/sass/_options.scss */
+/* line 97, ../../compass/sass/_options.scss */
 .grind {
   margin-left: 90px;
 }
-/* line 103, ../../compass/sass/_options.scss */
+/* line 99, ../../compass/sass/_options.scss */
 .grind .form-control {
   width: 65%;
   float: right;
 }
 
-/* line 108, ../../compass/sass/_options.scss */
+/* line 104, ../../compass/sass/_options.scss */
 .button-holder {
   margin-left: 75px;
   margin-top: 30px;
 }
-/* line 111, ../../compass/sass/_options.scss */
+/* line 107, ../../compass/sass/_options.scss */
 .button-holder button {
   width: 200px;
+  background-color: #284741;
+  color: white;
 }
 
-/* line 116, ../../compass/sass/_options.scss */
+/* line 114, ../../compass/sass/_options.scss */
 .shipping-info {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-/* line 122, ../../compass/sass/_options.scss */
+/* line 120, ../../compass/sass/_options.scss */
 #option2 {
   background-color: white;
 }
 
-/* line 127, ../../compass/sass/_options.scss */
+/* line 125, ../../compass/sass/_options.scss */
 #option2 img {
   width: 100%;
 }
 
+/* line 129, ../../compass/sass/_options.scss */
+#personalize {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+/* line 134, ../../compass/sass/_options.scss */
+#frequency {
+  border: 1px solid black;
+  margin-bottom: 25px;
+}
+/* line 137, ../../compass/sass/_options.scss */
+#frequency img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* line 141, ../../compass/sass/_options.scss */
+#frequency h2 {
+  margin-top: 130px;
+}
+
+/* line 146, ../../compass/sass/_options.scss */
+.form-control {
+  width: 50%;
+  margin-left: 120px;
+  margin-bottom: 15px;
+}
+
+/* line 152, ../../compass/sass/_options.scss */
+#quantity {
+  border: 1px solid black;
+  margin-bottom: 25px;
+}
+/* line 155, ../../compass/sass/_options.scss */
+#quantity img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* line 159, ../../compass/sass/_options.scss */
+#quantity h2 {
+  margin-top: 130px;
+}
+
+/* line 164, ../../compass/sass/_options.scss */
+#grind-type {
+  border: 1px solid black;
+  margin-bottom: 25px;
+}
+/* line 167, ../../compass/sass/_options.scss */
+#grind-type img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* line 171, ../../compass/sass/_options.scss */
+#grind-type h2 {
+  margin-top: 130px;
+}
+
+/* line 176, ../../compass/sass/_options.scss */
+#personal-submit {
+  margin-bottom: 85px;
+}
+/* line 178, ../../compass/sass/_options.scss */
+#personal-submit button {
+  width: 20%;
+  font-size: 25px;
+  background-color: #284741;
+  color: white;
+}
+
 /* line 1, ../../compass/sass/_footer.scss */
 .footer {
-  height: 100px;
+  height: 60px;
   background-color: #c4c4c4;
   margin-top: 25px;
   width: 100%;
@@ -353,5 +420,5 @@ body {
 /* line 8, ../../compass/sass/_footer.scss */
 .footer img {
   height: 35px;
-  margin-top: 25px;
+  margin-top: 5px;
 }

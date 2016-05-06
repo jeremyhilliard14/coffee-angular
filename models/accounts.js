@@ -13,7 +13,7 @@ var Account = new Schema({
 	address1: String,
 	address2: String,
 	city: String,
-	selectedState: String,
+	state: String,
 	zipCode: String,
 	deliveryDate: String,
 	plan: String

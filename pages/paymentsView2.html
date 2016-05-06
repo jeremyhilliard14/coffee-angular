@@ -59,7 +59,7 @@
 					<p>Coffee (lbs)</p>
 				</div>
 				<div class="col-sm-6">
-					<p>{{grindType}}</p>
+					<p>{{grind}}</p>
 					<p>{{frequency}}</p>
 					<p>{{quantity}}</p>
 				</div>
@@ -73,18 +73,18 @@
 
 			<div class="row">
 				<div class="col-sm-6">
-					<p><label>Name: </label> {{userOptions.fullname}}</p>
-					<p><label>Address: </label> {{userOptions.address}}</p>
-					<p><label>Address (cont.): </label> {{userOptions.address2}}</p>
-					<p><label>City: </label> {{userOptions.city}}</p>
-					<p><label>State: </label> {{userOptions.state}}</p>
-					<p><label>Zip: </label> {{userOptions.zip}}</p>
-					<p><label>Delivery Date: </label> {{userOptions.deliveryDate}}</p>
+					<p><label>Name: </label> {{fullName}}</p>
+					<p><label>Address: </label> {{address}}</p>
+					<p><label>Address (cont.): </label> {{address2}}</p>
+					<p><label>City: </label> {{city}}</p>
+					<p><label>State: </label> {{state}}</p>
+					<p><label>Zip: </label> {{zip}}</p>
+					<p><label>Delivery Date: </label> {{deliveryDate}}</p>
 				</div>
 				<div class="col-sm-6">
-					<p><label>Grind Type: </label> {{userOptions.grind}}</p>
-					<p><label>Frequency: </label> {{userOptions.frequency}}</p>
-					<p><label>Quantity: </label> {{userOptions.quantity}}</p>
+					<p><label>Grind Type: </label> {{grind}}</p>
+					<p><label>Frequency: </label> {{frequency}}</p>
+					<p><label>Quantity: </label> {{quantity}}</p>
 				</div>
 			</div>
 
@@ -112,7 +112,7 @@
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<div id="checkout-button" class="button-holder">
-<form action="" method="POST">
+<form action="http://localhost:3000/payments" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_rWLa6iTLc7PEWPlIsrkXjHyN"
@@ -122,6 +122,8 @@
     data-image="../public/images/dc_roasters.png"
     data-locale="auto">
   </script>
+  <input type="hidden" name="stripeAmount" value="4000">
+  <input type="hidden" name="stripeEmail" value="testEmail">
 </form>
 					<button type="submit" name="cancel" class="btn btn-danger btn-lg">Cancel Order</button>
 				</div>

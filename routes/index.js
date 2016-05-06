@@ -9,6 +9,24 @@ mongoose.connect(mongoUrl);
 
 //generate random token
 var token = randtoken.generate(32);
+//include stripe
+var stripe = require("stripe")(
+	"sk_test_f8WmD3UEdPs75vFvC5CJBzaQ"
+);
+
+
+router.post('/payments', function(req, res, next){
+	stripe.charges.create({
+	  amount: req.body.stripeAmount,
+	  currency: "usd",
+	  source: req.body.stripeToken, // obtained with Stripe.js
+	  description: "Charge for " + req.body.stripeEmail
+	}, {
+	  idempotency_key: "XDvU538wJbtVou6x"
+	}, function(err, charge) {
+	  // asynchronously called
+	});
+})
 //console.log(token);
 
 router.get('/getUserData', function(req, res, next){
@@ -131,9 +149,9 @@ router.post('/delivery', function(req, res, next){
 			address1: req.body.address1,
 			address2: req.body.address2,
 			city: req.body.city,
-			state: req.body.selectedState,
-			zipCode: req.body.zipCode,
-			date: req.body.deliveryDate,
+			state: req.body.state,
+			zip: req.body.zipCode,
+			deliveryDate: req.body.deliveryDate,
 			upsert: true
 		},
 		function(err, account){

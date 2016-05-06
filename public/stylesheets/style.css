@@ -331,12 +331,12 @@ body {
 .grind .form-control {
   width: 65%;
   float: right;
-  margin-top: -25px;
+  margin-top: -55px;
 }
 
 /* line 105, ../../compass/sass/_options.scss */
 #solo-button, #group-button {
-  margin-left: 75px;
+  margin-left: -80px;
   margin-top: 30px;
 }
 /* line 108, ../../compass/sass/_options.scss */

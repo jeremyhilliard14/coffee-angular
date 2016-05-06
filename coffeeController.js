@@ -133,19 +133,31 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		});
 	}
 
-	// $scope.deliveryForm = function(form){
-	// 	$http.post(apiUrl + 'delivery', {
-	// 		fullName: $scope.fullName,
-	// 		address1: $scope.address1,
-	// 		address2: $scope.address2,
-	// 		city: $scope.city,
-	// 		state: $scope.selectedState,
-	// 		zipCode: $scope.zipCode,
-	// 		date: $scope.date
-	// 	}).then(function successCallback(response){
-	// 		console.log(response.data);
+	$scope.deliveryForm = function(form){
+		console.log('delivery');
+		$http.post(apiUrl + 'delivery', {
+			token: $cookies.get('token'),
+			fullName: $scope.fullName,
+			address1: $scope.address1,
+			address2: $scope.address2,
+			city: $scope.city,
+			state: $scope.selectedState,
+			zipCode: $scope.zipCode,
+			date: $scope.deliveryDate
+		}).then(function successCallback(response){
+			console.log(response.data);
+			if(response.data.success == 'updated') {
+				$location.path('/payments');
+			}else if(response.data.failure == 'noMatch'){
+				console.log('error');
+			}
+		}, function errorCallback(response){
+			console.log('ERROR');
+		});
+	}
 
-	// 	})
-	// }
 
+
+// Test Secret Key: sk_test_f8WmD3UEdPs75vFvC5CJBzaQ Roll Key
+// Test Publishable Key: pk_test_rWLa6iTLc7PEWPlIsrkXjHyN 
 });

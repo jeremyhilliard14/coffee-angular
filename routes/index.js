@@ -123,4 +123,31 @@ router.post('/options', function(req, res, next){
 	)
 })
 
+router.post('/delivery', function(req, res, next){
+	Account.findOneAndUpdate(
+		{token: req.body.token}, //is the which
+		{
+			fullName: req.body.fullName,
+			address1: req.body.address1,
+			address2: req.body.address2,
+			city: req.body.city,
+			state: req.body.selectedState,
+			zipCode: req.body.zipCode,
+			date: req.body.deliveryDate,
+			upsert: true
+		},
+		function(err, account){
+			if(account == null){
+				//no record that matched this token
+				res.json({failure: 'noMatch'})
+			}else{
+				//we got a record and we updated it
+				account.save();
+				res.json({success: 'updated'})
+			}
+		}
+
+	)
+})
+
 module.exports = router;

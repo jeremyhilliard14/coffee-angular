@@ -49,7 +49,7 @@ coffeeApp.config(function($routeProvider) {
 		controller: 'coffeeController',
 		templateUrl: function($routeParams) {
 			console.log('routing to payments');
-			return 'pages/paymentsView.html';
+			return 'pages/paymentsView2.html';
 		}
 
 	});

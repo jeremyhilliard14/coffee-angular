@@ -1,0 +1,122 @@
+<div class="container-fluid">
+	<div class="row">
+		<div id="payments-nav" class="col-sm-12 text-center">
+			<ul id="payments-menu" class="list-inline">
+				<li id="payments-home">
+					<a href="/#/">
+						<div class="home"></div>
+						<p>1. HOME</p>
+					</a>
+				</li>
+
+				<li id="payments-option-icon">
+					<a href="/#/options">
+						<div id="delivery-option"></div>
+						<p>2. OPTIONS</p>
+					</a>
+				</li>
+
+				<li id="delivery">
+					<a href="/#/delivery">
+						<div class="delivery"></div>
+						<p>3. DELIVERY</p>
+					</a>
+				</li>
+
+				<li id="payments-payment">
+					<a href="/#/payments">
+						<div class="payment2"></div>
+						<p>4. PAYMENT</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<form ng-submit="checkoutForm()">
+
+		<div class="row">
+			<div class="col-sm-offset-2">
+				<div id="checkout-header" class="col-sm-10">
+					<h1>Payment</h1>
+					<h5>Order summary below</h5>
+				</div>
+			</div>
+		</div>
+
+		<div id="checkout" class="container light-panel">
+			
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Choices</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<p>Grind</p>
+					<p>Frequency of Delivery</p>
+					<p>Coffee (lbs)</p>
+				</div>
+				<div class="col-sm-6">
+					<p>{{grindType}}</p>
+					<p>{{frequency}}</p>
+					<p>{{quantity}}</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Delivery Information</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<p><label>Name: </label> {{userOptions.fullname}}</p>
+					<p><label>Address: </label> {{userOptions.address}}</p>
+					<p><label>Address (cont.): </label> {{userOptions.address2}}</p>
+					<p><label>City: </label> {{userOptions.city}}</p>
+					<p><label>State: </label> {{userOptions.state}}</p>
+					<p><label>Zip: </label> {{userOptions.zip}}</p>
+					<p><label>Delivery Date: </label> {{userOptions.deliveryDate}}</p>
+				</div>
+				<div class="col-sm-6">
+					<p><label>Grind Type: </label> {{userOptions.grind}}</p>
+					<p><label>Frequency: </label> {{userOptions.frequency}}</p>
+					<p><label>Quantity: </label> {{userOptions.quantity}}</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Current Charge</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<p>Quantity</p>
+					<p>Shipping</p>
+					<h2>Total</h2>
+				</div>
+				<div class="col-sm-6">
+					<p>{{quantity}}lbs x $20.00/lb = {{total}}</p>
+					<p>FREE!</p>
+					<h2>{{total}}</h2>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<div id="checkout-button" class="button-holder">
+					<button type="submit" name="submit" class="btn btn-success btn-lg">Pay With Card</button>
+					<button type="submit" name="cancel" class="btn btn-danger btn-lg">Cancel Order</button>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>

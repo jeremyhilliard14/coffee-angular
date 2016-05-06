@@ -580,6 +580,22 @@ body {
   margin-bottom: 25px;
 }
 
+/* line 34, ../../compass/sass/_payments.scss */
+#checkout {
+  background-color: white;
+}
+
+/* line 38, ../../compass/sass/_payments.scss */
+#checkout-header {
+  margin-bottom: 20px;
+}
+
+/* line 42, ../../compass/sass/_payments.scss */
+#checkout-button {
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
 /* line 1, ../../compass/sass/_footer.scss */
 .footer {
   height: 60px;

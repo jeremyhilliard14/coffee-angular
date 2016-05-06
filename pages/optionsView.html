@@ -54,14 +54,14 @@
 					<h3 class="price">Price per cup:<span class="price">$.50</span></h3>
 					<h3 class="total">Weekly total:<span class="total">$7.00</span></h3>
 					<h3 class="grind">Grind type:
-						<form role="form" ng-submit="optionsForm('individual')" id="options-form" name="grind" class="text-center">
-							<select id="form1" class="form-control" ng-model="grind" ng-value="">
+						<form role="form" ng-submit="optionsForm('individual')" id="options-form1" name="grind" class="text-center">
+							<select id="form1" class="form-control" ng-model="grind1">
 								<option></option>
-								<option>Very Fine</option>
-								<option>Fine</option>
-								<option>Medium</option>
-								<option>Coarse</option>
-								<option>Very Coarse</option>
+								<option value="veryFine">Very Fine</option>
+								<option value="fine">Fine</option>
+								<option value="medium">Medium</option>
+								<option value="coarse">Coarse</option>
+								<option value="veryCoarse">Very Coarse</option>
 							</select>
 							<div id="solo-button" class="button-holder">
 								<button class="btn.btn-succes" type="submit">Submit</button>
@@ -89,13 +89,13 @@
 					<h3 class="total">Weekly total:<span class="total">$18.00</span></h3>
 					<h3 class="grind">Grind type:
 						<form role="form" ng-submit="optionsForm('family')" id="options-form2" name="grind2" class="text-center">
-							<select id="form2" class="form-control" ng-model="grind" ng-value="">
+							<select id="form2" class="form-control" ng-model="grind2">
 								<option></option>
-								<option>Very Fine</option>
-								<option>Fine</option>
-								<option>Medium</option>
-								<option>Coarse</option>
-								<option>Very Coarse</option>
+								<option value="veryFine">Very Fine</option>
+								<option value="fine">Fine</option>
+								<option value="medium">Medium</option>
+								<option value="coarse">Coarse</option>
+								<option value="veryCoarse">Very Coarse</option>
 							</select>
 							<div id="group-button" class="button-holder">
 								<button class="btn.btn-success" type="submit">Submit</button>
@@ -168,11 +168,11 @@
 				<p>How do you like your grinds?</p>
 				<select class="form-control text-center" ng-model="type">
 					<option></option>
-						<option>Very Fine</option>
-						<option>Fine</option>
-						<option>Medium</option>
-						<option>Coarse</option>
-						<option>Very Coarse</option>
+						<option value="veryFine">Very Fine</option>
+						<option value="fine">Fine</option>
+						<option value="medium">Medium</option>
+						<option value="coarse">Coarse</option>
+						<option value="veryCoarse">Very Coarse</option>
 				</select>
 				<p>You can cancel anytime.  You can skip anytime.</p>
 			</div>

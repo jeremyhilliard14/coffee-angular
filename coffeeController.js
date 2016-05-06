@@ -115,9 +115,9 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 	}
 
 	$scope.optionsForm = function(planType){
-		console.log($scope.grind);
+		console.log($scope.grind1);
 		$http.post(apiUrl + 'options', {
-			grind: $scope.grind,
+			grind: $scope.grind1,
 			quantity: $scope.quantity,
 			token: $cookies.get('token'),
 			plan: planType

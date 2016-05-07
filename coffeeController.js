@@ -210,7 +210,7 @@ coffeeApp.controller('paymentsController', function($scope, $http, $location, $c
 				$scope.state = userOptions.state;
 				$scope.zip = userOptions.zipCode;
 				$scope.deliveryDate = userOptions.deliveryDate;
-				$scope.planType = userOptions.plan;
+				$scope.plan = userOptions.plan;
 				$scope.grind = userOptions.grind;
 				$scope.quantity = userOptions.quantity;
 				$scope.frequency = userOptions.frequency;

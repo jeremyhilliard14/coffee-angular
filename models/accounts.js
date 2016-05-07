@@ -16,8 +16,7 @@ var Account = new Schema({
 	state: String,
 	zipCode: String,
 	deliveryDate: String,
-	plan: String,
-	unitCost: String
+	plan: String
 });
 
 module.exports = mongoose.model('Account', Account)

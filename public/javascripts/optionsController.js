@@ -33,27 +33,35 @@ coffeeApp.controller('optionsController', function($scope, $http, $route, $locat
 
 	];
 
-	$scope.optionsForm = function(planType){		
+	$scope.optionsForm = function(planType){
+		console.log('hi');		
+
 		if (!$scope.grind){
 			// make the user select a grind type before submitting the form
 			return 'no grind selected.';
 		}
 
-		if (planType == 'idividual'){
-			$scope.quantity = 0.50;
-			$scope.frequency = { option: "Monthly" }
-			$scope.unitCost = 20.00;
-		} else if (planType == 'family'){
-			$scope.quantity = 1.00;
-			$scope.frequency = { option: "Every other week" }
-			$scope.unitCost = 17.00;
-		} else {
-			$scope.unitCost = 20.00;
-		}
+		if(planType == 'idividual'){
+			var grind = $scope.grind1;
+			var quantity = 2;
+			var frequency = "Weekly";
+			console.log('individual');
+		}else if(planType == 'family'){
+			var grind = $scope.grind2;
+			var quantity = 2;
+			var frequency = "Weekly";
+			console.log('family');
+		}else if(planType == 'custom'){
+			var grind = $scope.grind3;
+			var quantity = $scope.quantity;
+			var frequency = $scope.frequency.option;
+			console.log('custom');
+		};
 
 		$http.post(apiUrl + 'options', {
-			grind: $scope.grind,
-			quantity: $scope.quantity,
+			grind: grind,
+			quantity: quantity,
+			frequency: frequency,
 			token: $cookies.get('token'),
 			plan: planType
 		}).then(function successCallback(response){
@@ -61,9 +69,8 @@ coffeeApp.controller('optionsController', function($scope, $http, $route, $locat
 			if(response.data.success == 'updated'){
 				$cookies.put('grind', $scope.grind.option);
 				$cookies.put('quantity', $scope.quantity);
-				$cookies.put('planType', $scope.planType);
+				$cookies.put('plan', $scope.planType);
 				$cookies.put('frequency', $scope.frequency.option);
-				$cookies.put('unitCost', $scope.unitCost);
 				$location.path('/delivery');
 			}else if(response.data.failure == 'noMatch'){
 				$location.path('/login');

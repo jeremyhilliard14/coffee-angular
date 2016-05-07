@@ -123,10 +123,9 @@ router.post('/options', function(req, res, next){
 		{token: req.body.token}, //is the which
 		{
 			quantity: req.body.quantity,
-			grind: req.body.grind,
+			grind: req.body.grind.option,
 			plan: req.body.plan,
-			frequency: req.body.frequency,
-			unitCost: req.body.unitCost,
+			frequency: req.body.frequency.option,
 			upsert: true
 		},
 		function(err, account){

@@ -28,7 +28,7 @@ coffeeApp.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/options', {
-		controller: 'coffeeController',
+		controller: 'optionsController',
 		templateUrl: function($routeParams) {
 			console.log('routing to options');
 			return 'pages/optionsView.html';
@@ -114,27 +114,47 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		});
 	}
 
-	$scope.optionsForm = function(planType){
-		console.log($scope.grind1);
-		$http.post(apiUrl + 'options', {
-			grind: $scope.grind1,
-			quantity: $scope.quantity,
-			token: $cookies.get('token'),
-			plan: planType
-		}).then(function successCallback(response){
-			console.log(response.data);
-			if(response.data.success == 'updated'){
-				$cookies.put('grind', $scope.grind1);
-				$cookies.put('quantity', $scope.quantity);
-				$cookies.put('planType', $scope.planType);
-				$location.path('/delivery');
-			}else if(response.data.failure == 'noMatch'){
-				$location.path('/login');
-			}
-		}, function errorCallback(response){
-			console.log("ERROR");
-		});
-	}
+	// $scope.optionsForm = function(planType){
+	// 	console.log($scope.grind);
+
+	// 	if (!$scope.grind){
+	// 		// make the user select a grind type before submitting the form
+	// 		return 'no grind selected.';
+	// 	}
+
+	// 	if (planType == 'idividual'){
+	// 		$scope.quantity = 0.50;
+	// 		$scope.frequency = { option: "Monthly" }
+	// 		$scope.unitCost = 20.00;
+	// 	} else if (planType == 'family'){
+	// 		$scope.quantity = 1.00;
+	// 		$scope.frequency = { option: "Every other week" }
+	// 		$scope.unitCost = 17.00;
+	// 	} else {
+	// 		$scope.unitCost = 20.00;
+	// 	}
+
+	// 		$http.post(apiUrl + 'options', {
+	// 			grind: $scope.grind,
+	// 			quantity: $scope.quantity,
+	// 			token: $cookies.get('token'),
+	// 			plan: planType
+	// 		}).then(function successCallback(response){
+	// 			console.log(response.data);
+	// 			if(response.data.success == 'updated'){
+	// 				$cookies.put('grind', $scope.grind1);
+	// 				$cookies.put('quantity', $scope.quantity);
+	// 				$cookies.put('planType', $scope.planType);
+	// 				$cookies.put('frequency', $scope.frequency);
+	// 				$cookies.put('unitCost', $scope.unitCost);
+	// 				$location.path('/delivery');
+	// 			}else if(response.data.failure == 'noMatch'){
+	// 				$location.path('/login');
+	// 			}
+	// 		}, function errorCallback(response){
+	// 			console.log("ERROR");
+	// 		});
+	// }
 
 	$scope.deliveryForm = function(form){
 		console.log('delivery');

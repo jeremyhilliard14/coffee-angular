@@ -125,6 +125,8 @@ router.post('/options', function(req, res, next){
 			quantity: req.body.quantity,
 			grind: req.body.grind,
 			plan: req.body.plan,
+			frequency: req.body.frequency,
+			unitCost: req.body.unitCost,
 			upsert: true
 		},
 		function(err, account){

@@ -54,14 +54,9 @@
 					<h3 class="price">Price per cup:<span class="price">$.50</span></h3>
 					<h3 class="total">Weekly total:<span class="total">$7.00</span></h3>
 					<h3 class="grind">Grind type:
-						<form role="form" ng-submit="optionsForm('individual')" id="options-form1" name="grind" class="text-center">
-							<select id="form1" class="form-control" ng-model="grind1">
-								<option></option>
-								<option value="veryFine">Very Fine</option>
-								<option value="fine">Fine</option>
-								<option value="medium">Medium</option>
-								<option value="coarse">Coarse</option>
-								<option value="veryCoarse">Very Coarse</option>
+						<form role="form" ng-submit="optionsForm('individual')" id="options-form1" class="text-center">
+							<select id="form1"  ng-model="grind" ng-options="grind.option for grind in grinds">
+								<option value=""></option>
 							</select>
 							<div id="solo-button" class="button-holder">
 								<button class="btn.btn-succes" type="submit">Submit</button>
@@ -88,14 +83,9 @@
 					<h3 class="price">Price per cup:<span class="price">$.45</span></h3>
 					<h3 class="total">Weekly total:<span class="total">$18.00</span></h3>
 					<h3 class="grind">Grind type:
-						<form role="form" ng-submit="optionsForm('family')" id="options-form2" name="grind2" class="text-center">
-							<select id="form2" class="form-control" ng-model="grind2">
-								<option></option>
-								<option value="veryFine">Very Fine</option>
-								<option value="fine">Fine</option>
-								<option value="medium">Medium</option>
-								<option value="coarse">Coarse</option>
-								<option value="veryCoarse">Very Coarse</option>
+						<form role="form" ng-submit="optionsForm('family')" id="options-form2" class="text-center">
+							<select id="form2" ng-model="grind" ng-options="grind.option for grind in grinds">
+								<option value=""></option>
 							</select>
 							<div id="group-button" class="button-holder">
 								<button class="btn.btn-success" type="submit">Submit</button>
@@ -122,63 +112,57 @@
 
 <div class="row">
 	<div class="col-sm-offset-1">
-		<div id="frequency" class="col-sm-11">
-			<div class="col-sm-5 text-center">
-				<img src="public/images/calendar.png">
-			</div>
-			<div class="col-sm-5 text-center freq-text">
-				<h2>1.  FREQUENCY</h2>
-				<p>How often would you like us to send you your coffee?</p>
-				<select class="form-control text-center" ng-model="frequency">
-					<option></option>
-				</select>
-				<p>You can cancel anytime.  You can skip anytime.</p>
+		<form role="form" ng-submit="optionsForm('personalize')" id="options-form2" class="text-center">
+			<div id="frequency" class="col-sm-11">
+				<div class="col-sm-5 text-center">
+					<img src="public/images/calendar.png">
+				</div>
+				<div class="col-sm-5 text-center freq-text">
+					<h2>1.  FREQUENCY</h2>
+					<p>How often would you like us to send you your coffee?</p>
+					<select class="form-control text-center" ng-model="frequency" ng-options="frequency.option for frequency in frequencies">
+						<option></option>
+					</select>
+					<p>You can cancel anytime.  You can skip anytime.</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="col-sm-offset-1">
-		<div id="quantity" class="col-sm-11">
-			<div class="col-sm-5 text-center">
-				<img src="public/images/food-scale.png">
-			</div>
-			<div class="col-sm-5 text-center freq-text">
-				<h2>2.  QUANTITY</h2>
-				<p>How many pounds (increments of 25lbs) would you like each delivery?</p>
-				<p>$20.00/lb</p>
-				<select class="form-control text-center" ng-model="quantity">
-					<option></option>
-				</select>
-				<p>You can cancel anytime.  You can skip anytime.</p>
+	<div class="row">
+		<div class="col-sm-offset-1">
+			<div id="quantity" class="col-sm-11">
+				<div class="col-sm-5 text-center">
+					<img src="public/images/food-scale.png">
+				</div>
+				<div class="col-sm-5 text-center freq-text">
+					<h2>2.  QUANTITY</h2>
+					<p>How many pounds (increments of .25lbs) would you like each delivery?</p>
+					<p>$20.00/lb</p>
+					<input type="text" class="form-control" ng-model="quantity" maxlength="10">
+					<p>You can cancel anytime.  You can skip anytime.</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="col-sm-offset-1">
-		<div id="grind-type" class="col-sm-11">
-			<div class="col-sm-5 text-center">
-				<img src="public/images/beans.png">
-			</div>
-			<div class="col-sm-5 text-center freq-text">
-				<h2>3.  GRIND TYPE</h2>
-				<p>How do you like your grinds?</p>
-				<select class="form-control text-center" ng-model="type">
-					<option></option>
-						<option value="Very Fine">Very Fine</option>
-						<option value="Fine">Fine</option>
-						<option value="Medium">Medium</option>
-						<option value="Coarse">Coarse</option>
-						<option value="Very Coarse">Very Coarse</option>
-				</select>
-				<p>You can cancel anytime.  You can skip anytime.</p>
+	<div class="row">
+		<div class="col-sm-offset-1">
+			<div id="grind-type" class="col-sm-11">
+				<div class="col-sm-5 text-center">
+					<img src="public/images/beans.png">
+				</div>
+				<div class="col-sm-5 text-center freq-text">
+					<h2>3.  GRIND TYPE</h2>
+					<p>How do you like your grinds?</p>
+					<select class="text-center" ng-model="grind" ng-options="grind.option for grind in grinds">
+						<option value=""></option>
+					</select>
+					<p>You can cancel anytime.  You can skip anytime.</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 <div class="row">
 	<div id="personal-submit" class="col-sm-12 text-center">

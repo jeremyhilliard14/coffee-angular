@@ -15,49 +15,31 @@ coffeeApp.controller('optionsController', function($scope, $http, $route, $locat
 		console.log(response);
 	});
 
-	$scope.grinds = [
-
-		{option: "Very Fine"},
-		{option: "Fine"},
-		{option: "Medium"},
-		{option: "Coarse"},
-		{option: "Very Course"}
-
-	];
-
-	$scope.frequencies = [
-
-		{option: "Weekly"},
-		{option: "Every other week"},
-		{option: "Monthly"}
-
-	];
-
 	$scope.optionsForm = function(planType){
 		console.log('hi');		
 
-		if (!$scope.grind){
-			// make the user select a grind type before submitting the form
-			return 'no grind selected.';
-		}
+		// if (!$scope.grind){
+		// 	// make the user select a grind type before submitting the form
+		// 	return 'no grind selected.';
+		// }
 
-		if(planType == 'idividual'){
+		if(planType == 'individual'){
 			var grind = $scope.grind1;
 			var quantity = 2;
 			var frequency = "Weekly";
-			console.log('individual');
+			//console.log('individual');
 		}else if(planType == 'family'){
 			var grind = $scope.grind2;
 			var quantity = 2;
 			var frequency = "Weekly";
-			console.log('family');
+			//console.log('family');
 		}else if(planType == 'custom'){
 			var grind = $scope.grind3;
 			var quantity = $scope.quantity;
-			var frequency = $scope.frequency.option;
-			console.log('custom');
+			var frequency = $scope.frequency;
+			//console.log('custom');
 		};
-
+		console.log(planType);
 		$http.post(apiUrl + 'options', {
 			grind: grind,
 			quantity: quantity,
@@ -67,10 +49,10 @@ coffeeApp.controller('optionsController', function($scope, $http, $route, $locat
 		}).then(function successCallback(response){
 			console.log(response.data);
 			if(response.data.success == 'updated'){
-				$cookies.put('grind', $scope.grind.option);
-				$cookies.put('quantity', $scope.quantity);
-				$cookies.put('plan', $scope.planType);
-				$cookies.put('frequency', $scope.frequency.option);
+				$cookies.put('grind', $scope.grind, {expires: new Date() * 900000});
+				$cookies.put('quantity', $scope.quantity, {expires: new Date() * 900000});
+				$cookies.put('plan', $scope.planType, {expires: new Date() * 900000});
+				$cookies.put('frequency', $scope.frequency, {expires: new Date() * 900000});
 				$location.path('/delivery');
 			}else if(response.data.failure == 'noMatch'){
 				$location.path('/login');

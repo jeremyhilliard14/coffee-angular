@@ -3,28 +3,28 @@
 		<div id="payments-nav" class="col-sm-12 text-center">
 			<ul id="payments-menu" class="list-inline">
 				<li id="payments-home">
-					<a href="/#/">
+					<a href="/#/" style="color: black;">
 						<div class="home"></div>
 						<p>1. HOME</p>
 					</a>
 				</li>
 
 				<li id="payments-option-icon">
-					<a href="/#/options">
-						<div id="delivery-option"></div>
+					<a href="/#/options" style="color: black;">
+						<div id="delivery-option"></div> 
 						<p>2. OPTIONS</p>
 					</a>
 				</li>
 
 				<li id="delivery">
-					<a href="/#/delivery">
+					<a href="/#/delivery" style="color: black;">
 						<div class="delivery"></div>
 						<p>3. DELIVERY</p>
 					</a>
 				</li>
 
 				<li id="payments-payment">
-					<a href="/#/payments">
+					<a href="/#/payments" style="color: white;">
 						<div class="payment2"></div>
 						<p>4. PAYMENT</p>
 					</a>
@@ -54,14 +54,9 @@
 
 			<div class="row">
 				<div class="col-sm-6">
-					<p>Grind</p>
-					<p>Frequency of Delivery</p>
-					<p>Coffee (lbs)</p>
-				</div>
-				<div class="col-sm-6">
-					<p>{{grind}}</p>
-					<p>{{frequency}}</p>
-					<p>{{quantity}}</p>
+					<p><label>Grind Type: </label> {{grind}}</p>
+					<p><label>Frequency: </label> {{frequency}}</p>
+					<p><label>Quantity: </label> {{quantity}} lbs</p>
 				</div>
 			</div>
 
@@ -81,11 +76,6 @@
 					<p><label>Zip: </label> {{zip}}</p>
 					<p><label>Delivery Date: </label> {{deliveryDate}}</p>
 				</div>
-				<div class="col-sm-6">
-					<p><label>Grind Type: </label> {{grind}}</p>
-					<p><label>Frequency: </label> {{frequency}}</p>
-					<p><label>Quantity: </label> {{quantity}}</p>
-				</div>
 			</div>
 
 			<div class="row">
@@ -101,9 +91,9 @@
 					<h2>Total</h2>
 				</div>
 				<div class="col-sm-6">
-					<p>{{quantity}}lbs x $20.00/lb = {{total}}</p>
+					<p>{{quantity}}lbs x $20.00/lb = ${{total}}</p>
 					<p>FREE!</p>
-					<h2>{{total}}</h2>
+					<h2>${{total}}</h2>
 				</div>
 			</div>
 
@@ -116,13 +106,13 @@
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_rWLa6iTLc7PEWPlIsrkXjHyN"
-    data-amount="999"
+    data-amount="{{total}}" 
     data-name="DC Roasters"
     data-description="Order"
     data-image="https://www.wkwyatt.com/assets/images/portfolio/dc-logo.png"
     data-locale="auto">
   </script>
-  <input type="hidden" name="stripeAmount" value="4000">
+  <input type="hidden" name="stripeAmount" value="{{total}}">
   <input type="hidden" name="stripeEmail" value="testEmail">
 </form>
 					<button type="submit" name="cancel" class="btn btn-danger btn-lg">Cancel Order</button>

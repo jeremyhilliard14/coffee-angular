@@ -37,7 +37,7 @@ coffeeApp.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/delivery', {
-		controller: 'coffeeController',
+		controller: 'deliveryController',
 		templateUrl: function($routeParams) {
 			console.log('routing to delivery');
 			return 'pages/deliveryView.html';
@@ -84,7 +84,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			if(response.data.failure == 'passwordMatch'){
 				$scope.errorMessage = 'Your passwords must match.';
 			}else if(response.data.success == 'added'){
-				$cookies.put('token', response.data.token);
+				$cookies.put('token', response.data.token, {expires: new Date() * 900000});
 				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}
@@ -101,7 +101,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		}).then(function successCallback(response){
 			//console.log(response.data);
 			if(response.data.success == 'found'){
-				$cookies.put('token', response.data.token);
+				$cookies.put('token', response.data.token, {expires: new Date() * 900000});
 				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}else if(response.data.failure == 'noUser'){
@@ -114,109 +114,9 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		});
 	}
 
-	// $scope.optionsForm = function(planType){
-	// 	console.log($scope.grind);
-
-	// 	if (!$scope.grind){
-	// 		// make the user select a grind type before submitting the form
-	// 		return 'no grind selected.';
-	// 	}
-
-	// 	if (planType == 'idividual'){
-	// 		$scope.quantity = 0.50;
-	// 		$scope.frequency = { option: "Monthly" }
-	// 		$scope.unitCost = 20.00;
-	// 	} else if (planType == 'family'){
-	// 		$scope.quantity = 1.00;
-	// 		$scope.frequency = { option: "Every other week" }
-	// 		$scope.unitCost = 17.00;
-	// 	} else {
-	// 		$scope.unitCost = 20.00;
-	// 	}
-
-	// 		$http.post(apiUrl + 'options', {
-	// 			grind: $scope.grind,
-	// 			quantity: $scope.quantity,
-	// 			token: $cookies.get('token'),
-	// 			plan: planType
-	// 		}).then(function successCallback(response){
-	// 			console.log(response.data);
-	// 			if(response.data.success == 'updated'){
-	// 				$cookies.put('grind', $scope.grind1);
-	// 				$cookies.put('quantity', $scope.quantity);
-	// 				$cookies.put('planType', $scope.planType);
-	// 				$cookies.put('frequency', $scope.frequency);
-	// 				$cookies.put('unitCost', $scope.unitCost);
-	// 				$location.path('/delivery');
-	// 			}else if(response.data.failure == 'noMatch'){
-	// 				$location.path('/login');
-	// 			}
-	// 		}, function errorCallback(response){
-	// 			console.log("ERROR");
-	// 		});
-	// }
-
-	$scope.deliveryForm = function(form){
-		console.log('delivery');
-		$http.post(apiUrl + 'delivery', {
-			token: $cookies.get('token'),
-			fullName: $scope.fullName,
-			address1: $scope.address1,
-			address2: $scope.address2,
-			city: $scope.city,
-			state: $scope.state,
-			zipCode: $scope.zipCode,
-			deliveryDate: $scope.deliveryDate
-		}).then(function successCallback(response){
-			console.log(response.data);
-			if(response.data.success == 'updated') {
-				$cookies.put('fullName', $scope.fullName);
-				$cookies.put('address1', $scope.address1);
-				$cookies.put('address2', $scope.address2);
-				$cookies.put('city', $scope.city);
-				$cookies.put('state', $scope.state);
-				$cookies.put('zipCode', $scope.zipCode);
-				$cookies.put('deliveryDate', $scope.deliveryDate)
-				$location.path('/payments');
-			}else if(response.data.failure == 'noMatch'){
-				console.log('error');
-			}
-		}, function errorCallback(response){
-			console.log('ERROR');
-		});
-	}
-
 
 
 // Test Secret Key: sk_test_f8WmD3UEdPs75vFvC5CJBzaQ Roll Key
 // Test Publishable Key: pk_test_rWLa6iTLc7PEWPlIsrkXjHyN 
 });
 
-coffeeApp.controller('paymentsController', function($scope, $http, $location, $cookies){
-	
-	$http.get("http://localhost:3000/getUserData?token=" + $cookies.get('token'),{
-		}).then(function successCallback(response){
-			if(response.data.failure == 'noToken'){
-				$location.path('/login');
-			}else if(response.data.failure =='badToken'){
-				$location.path('/login');
-			}else{
-				var userOptions = response.data;
-				console.log(response.data);
-				$scope.fullName = userOptions.fullName;
-				$scope.address = userOptions.address1;
-				$scope.address2 = userOptions.address2;
-				$scope.city = userOptions.city;
-				$scope.state = userOptions.state;
-				$scope.zip = userOptions.zipCode;
-				$scope.deliveryDate = userOptions.deliveryDate;
-				$scope.plan = userOptions.plan;
-				$scope.grind = userOptions.grind;
-				$scope.quantity = userOptions.quantity;
-				$scope.frequency = userOptions.frequency;
-			}
-			}, function errorCallback(response){
-			console.log("ERROR");
-			}
-		);
-	});

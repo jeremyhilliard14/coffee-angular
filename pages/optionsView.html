@@ -3,28 +3,28 @@
 		<div id="options-nav" class="col-sm-12 text-center">
 			<ul id="menu" class="list-inline">
 				<li id="home">
-					<a href="/#/">
+					<a href="/#/" style="color: black;">
 						<div class="home"></div>
 						<p>1. HOME</p>
 					</a>
 				</li>
 
 				<li id="option-icon">
-					<a href="/#/options">
+					<a href="/#/options" style="color: white;">
 						<div class="options"></div>
 						<p>2. OPTIONS</p>
 					</a>
 				</li>
 
 				<li id="delivery">
-					<a href="/#/delivery">
+					<a href="/#/delivery" style="color: black;">
 						<div class="delivery"></div>
 						<p>3. DELIVERY</p>
 					</a>
 				</li>
 
 				<li id="payment">
-					<a href="/#/payment">
+					<a href="/#/payment" style="color: black;">
 						<div class="payment"></div>
 						<p>4. PAYMENT</p>
 					</a>
@@ -55,8 +55,12 @@
 					<h3 class="total">Weekly total:<span class="total">$7.00</span></h3>
 					<h3 class="grind">Grind type:
 						<form ng-submit="optionsForm('individual')" id="options-form1" class="text-center">
-							<select id="form1" class="form-control" ng-model="grind" ng-options="grind.option for grind in grinds">
-								<option value=""></option>
+							<select id="form1" class="form-control" ng-model="grind1">
+								<option value="Very Fine">Very Fine</option>
+								<option value="Fine">Fine</option>
+								<option value="Medium">Medium</option>
+								<option value="Coarse">Coarse</option>
+								<option value="Very Coarse">Very Coarse</option>
 							</select>
 							<div id="solo-button" class="button-holder">
 								<button class="btn.btn-succes" type="submit">Submit</button>
@@ -84,8 +88,12 @@
 					<h3 class="total">Weekly total:<span class="total">$18.00</span></h3>
 					<h3 class="grind">Grind type:
 						<form ng-submit="optionsForm('family')" id="options-form2" class="text-center">
-							<select id="form2" class="form-control" ng-model="grind2" ng-options="grind.option for grind in grinds">
-								<option value=""></option>
+							<select id="form2" class="form-control" ng-model="grind2">
+								<option value="Very Fine">Very Fine</option>
+								<option value="Fine">Fine</option>
+								<option value="Medium">Medium</option>
+								<option value="Coarse">Coarse</option>
+								<option value="Very Coarse">Very Coarse</option>
 							</select>
 							<div id="group-button" class="button-holder">
 								<button class="btn.btn-success" type="submit">Submit</button>
@@ -120,8 +128,10 @@
 				<div class="col-sm-5 text-center freq-text">
 					<h2>1.  FREQUENCY</h2>
 					<p>How often would you like us to send you your coffee?</p>
-					<select class="form-control text-center" ng-model="frequency" ng-options="frequency.option for frequency in frequencies">
-						<option></option>
+					<select class="form-control text-center" ng-model="frequency">
+						<option value="Weekly">Weekly</option>
+						<option value="Every other week">Every other week</option>
+						<option value="Monthly">Monthly</option>
 					</select>
 					<p>You can cancel anytime.  You can skip anytime.</p>
 				</div>
@@ -154,8 +164,12 @@
 					<div class="col-sm-5 text-center freq-text">
 						<h2>3.  GRIND TYPE</h2>
 						<p>How do you like your grinds?</p>
-						<select class="form-control text-center" ng-model="grind3" ng-options="grind.option for grind in grinds">
-							<option value=""></option>
+						<select class="form-control text-center" ng-model="grind3">
+							<option value="Very Fine">Very Fine</option>
+							<option value="Fine">Fine</option>
+							<option value="Medium">Medium</option>
+							<option value="Coarse">Coarse</option>
+							<option value="Very Coarse">Very Coarse</option>
 						</select>
 						<p>You can cancel anytime.  You can skip anytime.</p>
 					</div>

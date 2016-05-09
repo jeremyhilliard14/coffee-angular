@@ -123,9 +123,9 @@ router.post('/options', function(req, res, next){
 		{token: req.body.token}, //is the which
 		{
 			quantity: req.body.quantity,
-			grind: req.body.grind.option,
+			grind: req.body.grind,
 			plan: req.body.plan,
-			frequency: req.body.frequency.option,
+			frequency: req.body.frequency,
 			upsert: true
 		},
 		function(err, account){
@@ -151,7 +151,7 @@ router.post('/delivery', function(req, res, next){
 			address2: req.body.address2,
 			city: req.body.city,
 			state: req.body.state,
-			zip: req.body.zipCode,
+			zipCode: req.body.zipCode,
 			deliveryDate: req.body.deliveryDate,
 			upsert: true
 		},

@@ -40,4 +40,30 @@ coffeeApp.controller('paymentsController', function($scope, $http, $route, $loca
 			}
 	);
 
+	// function enableStripe(total){
+	// 	var total = total * 100;
+	// 	var handler = StripeCheckout.configure({
+	//     	key: 'pk_test_rWLa6iTLc7PEWPlIsrkXjHyN',
+	//     	image: '',
+	//     	locale: 'auto',
+	//     	token: function(token) {
+	//       	// You can access the token ID with `token.id`.
+	//       	// Get the token ID to your server-side code for use.
+	//     	}	
+	// 	});	
+	// 	$('#place-order').on('click', function(e) {
+	// 	    // Open Checkout with further options:
+	// 	    handler.open({
+	// 	    	name: 'DC Roasters',
+	// 	      	description: 'Coffee Order',
+	// 	      	amount: total
+	// 	    });
+	// 	    e.preventDefault();
+	// 	});	
+	//   	// Close Checkout on page navigation:
+	//   	$(window).on('popstate', function() {
+	//     	handler.close();
+	//   	});
+	// };
+
 });

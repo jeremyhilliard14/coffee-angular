@@ -102,11 +102,12 @@
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<div id="checkout-button" class="button-holder">
+					<!-- <button id="place-order" type="submit" name="place-order" class="btn btn-primary btn-lg">Place Order</button> -->
 <form action="http://localhost:3000/payments" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_rWLa6iTLc7PEWPlIsrkXjHyN"
-    data-amount="{{total}}" 
+    data-amount={{total}}
     data-name="DC Roasters"
     data-description="Order"
     data-image=""
@@ -122,3 +123,31 @@
 
 	</form>
 </div>
+<script type="text/javascript">
+
+// var handler = StripeCheckout.configure({
+//     key: 'pk_test_rWLa6iTLc7PEWPlIsrkXjHyN',
+//     image: '/img/documentation/checkout/marketplace.png',
+//     locale: 'auto',
+//     token: function(token) {
+//       // You can access the token ID with `token.id`.
+//       // Get the token ID to your server-side code for use.
+//     }
+//   });
+
+//   $('#checkout-button').on('click', function(e) {
+//     // Open Checkout with further options:
+//     handler.open({
+//       name: 'DC Roasters',
+//       description: '2 widgets',
+//       amount: {{total}}
+//     });
+//     e.preventDefault();
+//   });
+
+//   // Close Checkout on page navigation:
+//   $(window).on('popstate', function() {
+//     handler.close();
+//   });
+
+</script>

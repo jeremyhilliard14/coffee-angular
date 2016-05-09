@@ -2,7 +2,7 @@ var coffeeApp = angular.module('coffeeApp', ['ngRoute', 'ngCookies']);
 var apiUrl = 'http://www.jeremyhilliard.com:3000/'
 
 coffeeApp.config(function($routeProvider) {
-	$routeProvider.when('/', {
+	$routeProvider.when('projects/coffee/index.html#/', {
 		controller: 'coffeeController',
 		templateUrl: function($routeParams) {
 			console.log('routing to home');
@@ -10,7 +10,7 @@ coffeeApp.config(function($routeProvider) {
 		}
 	});
 
-	$routeProvider.when('/register', {
+	$routeProvider.when('projects/coffee/index.html#/register', {
 		controller: 'coffeeController',
 		templateUrl: function($routeParams) {
 			console.log('routing to registration');
@@ -18,7 +18,7 @@ coffeeApp.config(function($routeProvider) {
 		}
 	});
 
-	$routeProvider.when('/login', {
+	$routeProvider.when('projects/coffee/index.html#/login', {
 		controller: 'coffeeController',
 		templateUrl: function($routeParams) {
 			console.log('routing to login');
@@ -27,7 +27,7 @@ coffeeApp.config(function($routeProvider) {
 
 	});
 
-	$routeProvider.when('/options', {
+	$routeProvider.when('projects/coffee/index.html#/options', {
 		controller: 'optionsController',
 		templateUrl: function($routeParams) {
 			console.log('routing to options');
@@ -36,7 +36,7 @@ coffeeApp.config(function($routeProvider) {
 
 	});
 
-	$routeProvider.when('/delivery', {
+	$routeProvider.when('projects/coffee/index.html#/delivery', {
 		controller: 'deliveryController',
 		templateUrl: function($routeParams) {
 			console.log('routing to delivery');
@@ -45,7 +45,7 @@ coffeeApp.config(function($routeProvider) {
 
 	});
 
-	$routeProvider.when('/payments', {
+	$routeProvider.when('projects/coffee/index.html#/payments', {
 		controller: 'paymentsController',
 		templateUrl: function($routeParams) {
 			console.log('routing to payments');

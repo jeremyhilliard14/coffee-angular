@@ -1,5 +1,5 @@
 var coffeeApp = angular.module('coffeeApp', ['ngRoute', 'ngCookies']);
-var apiUrl = 'http://localhost:3000/'
+var apiUrl = 'http://www.jeremyhilliard.com:3000/'
 
 coffeeApp.config(function($routeProvider) {
 	$routeProvider.when('/', {
@@ -84,7 +84,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 			if(response.data.failure == 'passwordMatch'){
 				$scope.errorMessage = 'Your passwords must match.';
 			}else if(response.data.success == 'added'){
-				$cookies.put('token', response.data.token, {expires: new Date() * 900000});
+				$cookies.put('token', response.data.token);
 				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}
@@ -101,7 +101,7 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 		}).then(function successCallback(response){
 			//console.log(response.data);
 			if(response.data.success == 'found'){
-				$cookies.put('token', response.data.token, {expires: new Date() * 900000});
+				$cookies.put('token', response.data.token);
 				$cookies.put('username', $scope.username);
 				$location.path('/options');
 			}else if(response.data.failure == 'noUser'){

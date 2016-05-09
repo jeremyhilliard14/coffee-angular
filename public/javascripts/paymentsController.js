@@ -13,7 +13,7 @@ coffeeApp.controller('paymentsController', function($scope, $http, $route, $loca
 		console.log(response);
 	});
 
-	$http.get("http://localhost:3000/getUserData?token=" + $cookies.get('token'),{
+	$http.get("http://www.jeremyhilliard.com:3000/getUserData?token=" + $cookies.get('token'),{
 		}).then(function successCallback(response){
 			if(response.data.failure == 'noToken'){
 				$location.path('/login');

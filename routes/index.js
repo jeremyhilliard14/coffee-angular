@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoUrl = 'mongodb://localhost:27017/coffee';
+var mongoUrl = 'mongodb://www.jeremyhilliard.com:27017/coffee';
 var mongoose = require('mongoose');
 var Account = require('../models/accounts');
 var bcrypt = require('bcrypt-nodejs');
@@ -25,6 +25,7 @@ router.post('/payments', function(req, res, next){
 	  idempotency_key: "XDvU538wJbtVou6x"
 	}, function(err, charge) {
 	  // asynchronously called
+	  // res.json({success: "Thank you"});
 	});
 })
 //console.log(token);

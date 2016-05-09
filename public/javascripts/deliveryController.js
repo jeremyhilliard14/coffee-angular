@@ -26,13 +26,13 @@ coffeeApp.controller('deliveryController', function($scope, $http, $route, $loca
 		}).then(function successCallback(response){
 			console.log(response.data);
 			if(response.data.success == 'updated') {
-				$cookies.put('fullName', $scope.fullName, {expires: new Date() * 900000});
-				$cookies.put('address1', $scope.address1, {expires: new Date() * 900000});
-				$cookies.put('address2', $scope.address2, {expires: new Date() * 900000});
-				$cookies.put('city', $scope.city, {expires: new Date() * 900000});
-				$cookies.put('state', $scope.state, {expires: new Date() * 900000});
-				$cookies.put('zipCode', $scope.zipCode, {expires: new Date() * 900000});
-				$cookies.put('deliveryDate', $scope.deliveryDate, {expires: new Date() * 900000});
+				$cookies.put('fullName', $scope.fullName);
+				$cookies.put('address1', $scope.address1);
+				$cookies.put('address2', $scope.address2);
+				$cookies.put('city', $scope.city);
+				$cookies.put('state', $scope.state);
+				$cookies.put('zipCode', $scope.zipCode);
+				$cookies.put('deliveryDate', $scope.deliveryDate);
 				$location.path('/payments');
 			}else if(response.data.failure == 'noMatch'){
 				console.log('error');

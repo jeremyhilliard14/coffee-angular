@@ -13,7 +13,8 @@ coffeeApp.controller('deliveryController', function($scope, $http, $route, $loca
 	});
 
 	$scope.deliveryForm = function(form){
-		console.log('delivery');
+		//console.log('delivery');
+		console.log($scope.deliveryDate);
 		$http.post(apiUrl + 'delivery', {
 			token: $cookies.get('token'),
 			fullName: $scope.fullName,

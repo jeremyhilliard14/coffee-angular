@@ -13,7 +13,7 @@ coffeeApp.controller('paymentsController', function($scope, $http, $route, $loca
 		console.log(response);
 	});
 
-	$http.get("http://www.jeremyhilliard.com:3000/getUserData?token=" + $cookies.get('token'),{
+	$http.get("http://localhost:3000/getUserData?token=" + $cookies.get('token'),{
 		}).then(function successCallback(response){
 			if(response.data.failure == 'noToken'){
 				$location.path('/login');
@@ -40,30 +40,38 @@ coffeeApp.controller('paymentsController', function($scope, $http, $route, $loca
 			}
 	);
 
-	// function enableStripe(total){
-	// 	var total = total * 100;
-	// 	var handler = StripeCheckout.configure({
-	//     	key: 'pk_test_rWLa6iTLc7PEWPlIsrkXjHyN',
-	//     	image: '',
-	//     	locale: 'auto',
-	//     	token: function(token) {
-	//       	// You can access the token ID with `token.id`.
-	//       	// Get the token ID to your server-side code for use.
-	//     	}	
-	// 	});	
-	// 	$('#place-order').on('click', function(e) {
-	// 	    // Open Checkout with further options:
-	// 	    handler.open({
-	// 	    	name: 'DC Roasters',
-	// 	      	description: 'Coffee Order',
-	// 	      	amount: total
-	// 	    });
-	// 	    e.preventDefault();
-	// 	});	
-	//   	// Close Checkout on page navigation:
-	//   	$(window).on('popstate', function() {
-	//     	handler.close();
-	//   	});
-	// };
+	$scope.payOrder = function(userOptions) {
+        $scope.errorMessage = "";
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_rWLa6iTLc7PEWPlIsrkXjHyN',
+            image: '',
+            locale: 'auto',
+            token: function(token) {
+                console.log("The token Id is: ");
+                console.log(token.id);
+
+                $http.post(apiUrl + 'payments', {
+                    amount: $scope.total * 100,
+                    stripeToken: token.id,
+                    token: $cookies.get('token')
+                        //This will pass amount, stripeToken, and token to /payment
+                }).then(function successCallback(response) {
+                    console.log(response.data);
+                    if (response.data.success) {
+                        //Say thank you
+                        $location.path('/receipt');
+                    } else {
+                        $scope.errorMessage = response.data.message;
+                        
+                    }
+                }, function errorCallback(response) {});
+            }
+        });
+        handler.open({
+            name: 'DC Roasters',
+            description: 'Your Order',
+            amount: $scope.total * 100
+        });
+    };
 
 });

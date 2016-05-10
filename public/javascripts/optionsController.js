@@ -49,10 +49,10 @@ coffeeApp.controller('optionsController', function($scope, $http, $route, $locat
 		}).then(function successCallback(response){
 			console.log(response.data);
 			if(response.data.success == 'updated'){
-				$cookies.put('grind', $scope.grind, {expires: new Date() * 900000});
-				$cookies.put('quantity', $scope.quantity, {expires: new Date() * 900000});
-				$cookies.put('plan', $scope.planType, {expires: new Date() * 900000});
-				$cookies.put('frequency', $scope.frequency, {expires: new Date() * 900000});
+				$cookies.put('grind', $scope.grind);
+				$cookies.put('quantity', $scope.quantity);
+				$cookies.put('plan', $scope.planType);
+				$cookies.put('frequency', $scope.frequency);
 				$location.path('/delivery');
 			}else if(response.data.failure == 'noMatch'){
 				$location.path('/login');

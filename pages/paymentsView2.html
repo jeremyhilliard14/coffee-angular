@@ -102,20 +102,8 @@
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<div id="checkout-button" class="button-holder">
-					<!-- <button id="place-order" type="submit" name="place-order" class="btn btn-primary btn-lg">Place Order</button> -->
-<form action="http://localhost:3000/payments" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_rWLa6iTLc7PEWPlIsrkXjHyN"
-    data-amount={{total}}
-    data-name="DC Roasters"
-    data-description="Order"
-    data-image=""
-    data-locale="auto">
-  </script>
-  <input type="hidden" name="stripeAmount" value="{{total}}">
-  <input type="hidden" name="stripeEmail" value="testEmail">
-</form>
+					<button ng-click="payOrder(userOptions)" id="place-order" type="submit" name="place-order" class="btn btn-primary btn-lg">Place Order</button>
+					
 					<button type="submit" name="cancel" class="btn btn-danger btn-lg">Cancel Order</button>
 				</div>
 			</div>

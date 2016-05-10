@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoUrl = 'mongodb://www.jeremyhilliard.com:27017/coffee';
+var mongoUrl = 'mongodb://localhost:27017/coffee';
 var mongoose = require('mongoose');
 var Account = require('../models/accounts');
 var bcrypt = require('bcrypt-nodejs');
@@ -14,21 +14,63 @@ var stripe = require("stripe")(
 	"sk_test_f8WmD3UEdPs75vFvC5CJBzaQ"
 );
 
+var ApiResponse = function(func, success, message, token, doc) {
+    this.func = func || undefined;
+    this.success = success || false;
+    this.message = message || undefined;
+    this.token = token || undefined;
+    this.doc = doc || undefined;
+};
 
-router.post('/payments', function(req, res, next){
-	stripe.charges.create({
-	  amount: req.body.stripeAmount,
-	  currency: "usd",
-	  source: req.body.stripeToken, // obtained with Stripe.js
-	  description: "Charge for " + req.body.stripeEmail
-	}, {
-	  idempotency_key: "XDvU538wJbtVou6x"
-	}, function(err, charge) {
-	  // asynchronously called
-	  // res.json({success: "Thank you"});
-	});
-})
-//console.log(token);
+router.post('/payments', function(req, res, next) {
+    console.log(req.body);
+    var apiResp = new ApiResponse();
+    apiResp.func = "checkout";
+    var token = req.body.token;
+    var amount = req.body.amount;
+    var stripeToken = req.body.stripeToken;
+    if (token === undefined) {
+        apiResp.success = false;
+        apiResp.message = "noToken";
+        res.json(apiResp);
+    } else {
+        Account.findOne({
+                token: token
+            }, //this is the droid we're looking for
+            function(err, doc) {
+                if (doc !== null) {
+                    //send info to stripe for checkout
+                    var charge = stripe.charges.create({
+                        amount: amount,
+                        currency: "usd",
+                        source: stripeToken,
+                        description: "DC Roasters Coffee"
+                    }, function(err, charge) {
+                        if (err && err.type === 'StripeCardError') {
+                            // The card has been declined
+                            console.log("The Card has been declined");
+                            apiResp.success = false;
+                            apiResp.message = 'Card Declined';
+                            res.json(apiResp);
+                        } else {
+                            apiResp.success = true;
+                            apiResp.message = 'Card Accepted';
+                            res.json(apiResp);
+                        }
+                          console.log(apiResp);
+                    });
+                } else {
+                    apiResp.success = false;
+                    apiResp.message = "badToken";
+                    res.json(apiResp);
+                      console.log(apiResp);
+                }
+
+            }
+        );
+    }
+});
+
 
 router.get('/getUserData', function(req, res, next){
 	console.log(req.query.token);

@@ -55,7 +55,6 @@ coffeeApp.config(function($routeProvider) {
 	});
 });
 
-
 coffeeApp.controller('coffeeController', function($scope, $http, $route, $location, $cookies){
 	$scope.message = "HELLO!!!!"
 
@@ -117,6 +116,5 @@ coffeeApp.controller('coffeeController', function($scope, $http, $route, $locati
 
 
 // Test Secret Key: sk_test_f8WmD3UEdPs75vFvC5CJBzaQ Roll Key
-// Test Publishable Key: pk_test_rWLa6iTLc7PEWPlIsrkXjHyN 
+// Test Publishable Key: pk_test_rWLa6iTLc7PEWPlIsrkXjHyN
 });
-
